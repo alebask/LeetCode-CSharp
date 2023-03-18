@@ -14,18 +14,17 @@ public class LongestConsecutiveSequence {
             while (n != j && n < length) {
                 int tmp = nums[n];
                 nums[n] = n;
-                n = tmp;
                 j = n;
-
+                n = tmp;
             }
         }
 
-        int l = 1;
-        int lmax = 1;
+        int l = 0;
+        int lmax = 0;
         for (int i = 0, length = nums.Length; i < length; i++) {
-            l = (nums[i] == i) ? l + 1 : 1;
+            l = (nums[i] == i) ? l + 1 : 0;
             lmax = Math.Max(lmax, l);
         }
-        return l;
+        return lmax;
     }
 }
